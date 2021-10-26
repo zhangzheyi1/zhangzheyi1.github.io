@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/alarak.png">
+  <link rel="icon" href="/img/alarak.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>10个好用的的css框架 - zzy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"zhangzheyi1.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zzy's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/post-page.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="10个好用的的css框架">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-21 16:02" pubdate>
+        2021年9月21日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">10个好用的的css框架</h1>
+            
+            <div class="markdown-body">
+              <h1 id="10个好用的的css框架"><a href="#10个好用的的css框架" class="headerlink" title="10个好用的的css框架"></a>10个好用的的css框架</h1><p>优秀的css框架可以使开发变得更加快速，不再为兼容性苦恼，并且一般都会有合理的布局，作为开发可以减少对UI设计的思考。近期我整理了一些css框架供开发者选择和使用，排名不分先后。</p>
+<h2 id="1-bootstrap"><a href="#1-bootstrap" class="headerlink" title="1.bootstrap"></a>1.bootstrap</h2><p>Bootstrap仍然是最流行的 CSS 框架之一。他们提供了大量的文档、示例和演示，可以帮你快速进行响应式 Web 开发。该框架的当前版本是 Bootstrap 5，相较于V4，做出了一些改变：</p>
+<ul>
+<li>拥有了自己的SVG图标库</li>
+<li>不再支持jquery</li>
+<li>不再支持IE</li>
+<li>增加了css自定义属性</li>
+<li>增强的网格系统</li>
+<li>Forms可被更新</li>
+</ul>
+<p><img src="/img/cssLibraries/bootstrap.png" srcset="/img/loading.gif" lazyload alt="bootstrap"><br>传送门：<a target="_blank" rel="noopener" href="https://getbootstrap.com/">https://getbootstrap.com/</a></p>
+<h2 id="2-tailwind"><a href="#2-tailwind" class="headerlink" title="2.tailwind"></a>2.tailwind</h2><p>Tailwind CSS 是一个功能类优先的 CSS 框架，它集成了诸如<strong>flex</strong>, <strong>pt-4</strong>, <strong>text-center</strong> 和 <strong>rotate-90</strong> 这样的的类，它们能直接在脚本标记语言中组合起来，构建出任何设计。</p>
+<p>主要特性：</p>
+<ul>
+<li>组件化</li>
+<li>体积小，性能高</li>
+<li>响应式</li>
+</ul>
+<p><img src="/img/cssLibraries/tailwindcss.png" srcset="/img/loading.gif" lazyload alt="tailwind"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://tailwindcss.com/">https://tailwindcss.com/</a></p>
+<h2 id="3-Foundation"><a href="#3-Foundation" class="headerlink" title="3.Foundation"></a>3.Foundation</h2><p>Foundation 是由产品设计公司 ZURB 制作的自适应前端框架。<br>相比于其他同类型工具，Foundation的移动化方案更加出色。借鉴响应式Web设计的思路和方法，Foundation对内容结构在不同类型设备中的的呈现方式进行了相应的预设。</p>
+<p><img src="/img/cssLibraries/foundation.png" srcset="/img/loading.gif" lazyload alt="foundation"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://get.foundation/">https://get.foundation/</a></p>
+<h2 id="4-Skeleton"><a href="#4-Skeleton" class="headerlink" title="4. Skeleton"></a>4. Skeleton</h2><p>如果您正在着手一个较小的项目，或者只是觉得不需要大型框架的所有实用程序，则应该使用 Skeleton。</p>
+<p>在Skeleton css官网中，介绍了三个Skeleton的三大优势：</p>
+<ul>
+<li>Light as a feather at ~400 lines &amp; built with mobile in mind.（超轻量级, 为移动端打造）</li>
+<li>Styles designed to be a starting point, not a UI framework.（样式设计为起点，而非 UI 框架）</li>
+<li>Quick to start with zero compiling or installing necessary.<br>（快速入门，零编译或安装必要）</li>
+</ul>
+<p>根据Skeleton的特点和优势，可以把它的典型应用场景归纳为：</p>
+<ul>
+<li>css学习和demo练习；</li>
+<li>创建小型的响应式手机应用；</li>
+</ul>
+<p><img src="/img/cssLibraries/skeleton.png" srcset="/img/loading.gif" lazyload alt="skeleton"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="http://getskeleton.com/">http://getskeleton.com/</a></p>
+<h2 id="5-Tachyons"><a href="#5-Tachyons" class="headerlink" title="5.Tachyons"></a>5.Tachyons</h2><p>Tachyons具备了当前流行的css框架的优点，无需自己编写大量 CSS。轻量、可定制化和拓展等。Tachyons有极其细化的原子类，只需要在类名中添加属性新的样式即可。不必担心命名冲突，也无需担心样式覆盖，这样可以更能直观的看出样式的具体内容。</p>
+<p><img src="/img/cssLibraries/tachyons.png" srcset="/img/loading.gif" lazyload alt="tachyons"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://tachyons.io/">https://tachyons.io/</a></p>
+<h2 id="6-UIkit"><a href="#6-UIkit" class="headerlink" title="6.UIkit"></a>6.UIkit</h2><p>相较于其他通用的css框架，UIkit有一些这些框架没有的组件，比如</p>
+<ul>
+<li>Lightbox（利用模态对话框为图片和视频创建一个别致的灯箱）</li>
+<li>Parallax（依赖于页面滚动条位置的动态 CSS 特性）</li>
+<li>Nestable（创建可以通过拖拽排序的可嵌套式列表）</li>
+<li>Sortable（创建可排序的网格和列表重新来排列元素的顺序）</li>
+<li>…</li>
+</ul>
+<p><img src="/img/cssLibraries/uikit.png" srcset="/img/loading.gif" lazyload alt="uikit"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://getuikit.com/">https://getuikit.com/</a></p>
+<h2 id="7-Semantic-UI"><a href="#7-Semantic-UI" class="headerlink" title="7.Semantic UI"></a>7.Semantic UI</h2><p>Semantic意为语义，由于Semantic UI类在命名上清晰易懂，因此开发人员不但节省了学习的时间，也让手头上项目的开发更快、更直观。此外布局的多样性是Semantic UI的另一个优势。通过不同的主题，您可以轻松地为各种项目找到必要的组件。</p>
+<p>Semantic UI存在一些缺点，更新频率相较于其他热门框架较低，并且在某些设备运行响应能力一般。</p>
+<p><img src="/img/cssLibraries/semantic.png" srcset="/img/loading.gif" lazyload alt="semantic"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://semantic-ui.com/">https://semantic-ui.com/</a></p>
+<h2 id="8-Bulma"><a href="#8-Bulma" class="headerlink" title="8.Bulma"></a>8.Bulma</h2><p>Bulma 是一个基于 Flexbox 的现代化的 CSS 框架。它提供了随时可用的前端组件，您可以轻松地组合这些组件来构建响应式 Web 界面。</p>
+<p><img src="/img/cssLibraries/bulma.png" srcset="/img/loading.gif" lazyload alt="bulma"></p>
+<p>和bootstrap相比，两者最大的区别是，bulma是纯css，没有js，bootstrap有JS。这里举个<strong>列布局</strong>的例子：</p>
+<ol>
+<li>添加<code>columns</code>容器</li>
+<li>添加任意数量的<code>column</code>元素</li>
+</ol>
+<p>无论列数是多少，每一列的<strong>宽度</strong>都<strong>相等</strong>。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">&lt;div <span class="hljs-keyword">class</span>=&quot;<span class="hljs-symbol">columns</span>&quot;&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">1</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">2</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">3</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">4</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">5</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>&lt;/<span class="hljs-symbol">div</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>传送门：<a target="_blank" rel="noopener" href="https://bulma.io/">https://bulma.io/</a></p>
+<h2 id="9-Picnic"><a href="#9-Picnic" class="headerlink" title="9.Picnic"></a>9.Picnic</h2><p>Picnic是一个轻量级CSS框架，压缩后的大小不到10kb。该框架最大的特点就是具有多个交互式组件，包括栅格、表单、选项卡、工具提示等等，可以帮助开发人员快速创建响应式网站和web应用程序。</p>
+<p>Picnic CSS是一个用<strong>Sass</strong>写的轻量级UI框架，它能更容易的编辑和自定义变量，如颜色和长度。它还有一些不错的纯CSS写的UI组件，如模态窗口和内容滑块。 </p>
+<p><img src="/img/cssLibraries/picnicss.png" srcset="/img/loading.gif" lazyload alt="picnicss"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://picnicss.com/">https://picnicss.com/</a></p>
+<h2 id="10-NES-css"><a href="#10-NES-css" class="headerlink" title="10.NES.css"></a>10.NES.css</h2><p>NES.css 模仿了8 位 Nintendo Entertainment System 图形，营造出复古的游戏外观：</p>
+<p>NES.css 只需要 CSS，不依赖任何 JavaScript。作为每个游戏发烧友都会大呼：爱了！</p>
+<p><img src="/img/cssLibraries/NES.png" srcset="/img/loading.gif" lazyload alt="NES"></p>
+<p>传送门：<a target="_blank" rel="noopener" href="https://nostalgic-css.github.io/NES.css/">https://nostalgic-css.github.io/NES.css/</a></p>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/nostalgic-css/NES.css">https://github.com/nostalgic-css/NES.css</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/26/%E5%86%9C%E6%B0%91%E5%B7%A5%E6%97%A5%E8%AE%B001/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">农民工日记01</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/30/git%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">git命令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"2KSdC5gxWFiBvC8NJywDN5og-gzGzoHsz","appKey":"uK01l40rQQwzma9swo1PnAlq","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://2ksdc5gx.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
