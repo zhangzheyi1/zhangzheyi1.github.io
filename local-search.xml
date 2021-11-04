@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>重构总结</title>
+    <link href="/2021/11/03/%E9%87%8D%E6%9E%84%E6%80%BB%E7%BB%93/"/>
+    <url>/2021/11/03/%E9%87%8D%E6%9E%84%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>项目得多做总结，能记就记一下。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>总结</tag>
+      
+      <tag>重构</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>可拖拽的List组件</title>
     <link href="/2021/11/03/%E5%8F%AF%E6%8B%96%E6%8B%BD%E7%9A%84List%E7%BB%84%E4%BB%B6/"/>
     <url>/2021/11/03/%E5%8F%AF%E6%8B%96%E6%8B%BD%E7%9A%84List%E7%BB%84%E4%BB%B6/</url>
@@ -17,6 +44,14 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>React</tag>
+      
+      <tag>组件</tag>
+      
+    </tags>
     
   </entry>
   
@@ -37,6 +72,16 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>React</tag>
+      
+      <tag>组件</tag>
+      
+      <tag>antd</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -56,6 +101,12 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>js</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -70,10 +121,18 @@
     
     <categories>
       
-      <category>面经</category>
+      <category>前端技术</category>
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>总结</tag>
+      
+      <tag>面经</tag>
+      
+    </tags>
     
   </entry>
   
@@ -89,10 +148,18 @@
     
     <categories>
       
-      <category>面经</category>
+      <category>前端技术</category>
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>总结</tag>
+      
+      <tag>面经</tag>
+      
+    </tags>
     
   </entry>
   
@@ -113,14 +180,22 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>总结</tag>
+      
+      <tag>面经</tag>
+      
+    </tags>
+    
   </entry>
   
   
   
   <entry>
     <title>10个好用的的css框架</title>
-    <link href="/2021/09/21/10%E4%B8%AA%E5%A5%BD%E7%94%A8%E7%9A%84css%E6%A1%86%E6%9E%B6/"/>
-    <url>/2021/09/21/10%E4%B8%AA%E5%A5%BD%E7%94%A8%E7%9A%84css%E6%A1%86%E6%9E%B6/</url>
+    <link href="/2021/09/22/10%E4%B8%AA%E5%A5%BD%E7%94%A8%E7%9A%84css%E6%A1%86%E6%9E%B6/"/>
+    <url>/2021/09/22/10%E4%B8%AA%E5%A5%BD%E7%94%A8%E7%9A%84css%E6%A1%86%E6%9E%B6/</url>
     
     <content type="html"><![CDATA[<h1 id="10个好用的的css框架"><a href="#10个好用的的css框架" class="headerlink" title="10个好用的的css框架"></a>10个好用的的css框架</h1><p>优秀的css框架可以使开发变得更加快速，不再为兼容性苦恼，并且一般都会有合理的布局，作为开发可以减少对UI设计的思考。近期我整理了一些css框架供开发者选择和使用，排名不分先后。</p><h2 id="1-bootstrap"><a href="#1-bootstrap" class="headerlink" title="1.bootstrap"></a>1.bootstrap</h2><p>Bootstrap仍然是最流行的 CSS 框架之一。他们提供了大量的文档、示例和演示，可以帮你快速进行响应式 Web 开发。该框架的当前版本是 Bootstrap 5，相较于V4，做出了一些改变：</p><ul><li>拥有了自己的SVG图标库</li><li>不再支持jquery</li><li>不再支持IE</li><li>增加了css自定义属性</li><li>增强的网格系统</li><li>Forms可被更新</li></ul><p><img src="/img/cssLibraries/bootstrap.png" alt="bootstrap"><br>传送门：<a href="https://getbootstrap.com/">https://getbootstrap.com/</a></p><h2 id="2-tailwind"><a href="#2-tailwind" class="headerlink" title="2.tailwind"></a>2.tailwind</h2><p>Tailwind CSS 是一个功能类优先的 CSS 框架，它集成了诸如<strong>flex</strong>, <strong>pt-4</strong>, <strong>text-center</strong> 和 <strong>rotate-90</strong> 这样的的类，它们能直接在脚本标记语言中组合起来，构建出任何设计。</p><p>主要特性：</p><ul><li>组件化</li><li>体积小，性能高</li><li>响应式</li></ul><p><img src="/img/cssLibraries/tailwindcss.png" alt="tailwind"></p><p>传送门：<a href="https://tailwindcss.com/">https://tailwindcss.com/</a></p><h2 id="3-Foundation"><a href="#3-Foundation" class="headerlink" title="3.Foundation"></a>3.Foundation</h2><p>Foundation 是由产品设计公司 ZURB 制作的自适应前端框架。<br>相比于其他同类型工具，Foundation的移动化方案更加出色。借鉴响应式Web设计的思路和方法，Foundation对内容结构在不同类型设备中的的呈现方式进行了相应的预设。</p><p><img src="/img/cssLibraries/foundation.png" alt="foundation"></p><p>传送门：<a href="https://get.foundation/">https://get.foundation/</a></p><h2 id="4-Skeleton"><a href="#4-Skeleton" class="headerlink" title="4. Skeleton"></a>4. Skeleton</h2><p>如果您正在着手一个较小的项目，或者只是觉得不需要大型框架的所有实用程序，则应该使用 Skeleton。</p><p>在Skeleton css官网中，介绍了三个Skeleton的三大优势：</p><ul><li>Light as a feather at ~400 lines &amp; built with mobile in mind.（超轻量级, 为移动端打造）</li><li>Styles designed to be a starting point, not a UI framework.（样式设计为起点，而非 UI 框架）</li><li>Quick to start with zero compiling or installing necessary.<br>（快速入门，零编译或安装必要）</li></ul><p>根据Skeleton的特点和优势，可以把它的典型应用场景归纳为：</p><ul><li>css学习和demo练习；</li><li>创建小型的响应式手机应用；</li></ul><p><img src="/img/cssLibraries/skeleton.png" alt="skeleton"></p><p>传送门：<a href="http://getskeleton.com/">http://getskeleton.com/</a></p><h2 id="5-Tachyons"><a href="#5-Tachyons" class="headerlink" title="5.Tachyons"></a>5.Tachyons</h2><p>Tachyons具备了当前流行的css框架的优点，无需自己编写大量 CSS。轻量、可定制化和拓展等。Tachyons有极其细化的原子类，只需要在类名中添加属性新的样式即可。不必担心命名冲突，也无需担心样式覆盖，这样可以更能直观的看出样式的具体内容。</p><p><img src="/img/cssLibraries/tachyons.png" alt="tachyons"></p><p>传送门：<a href="https://tachyons.io/">https://tachyons.io/</a></p><h2 id="6-UIkit"><a href="#6-UIkit" class="headerlink" title="6.UIkit"></a>6.UIkit</h2><p>相较于其他通用的css框架，UIkit有一些这些框架没有的组件，比如</p><ul><li>Lightbox（利用模态对话框为图片和视频创建一个别致的灯箱）</li><li>Parallax（依赖于页面滚动条位置的动态 CSS 特性）</li><li>Nestable（创建可以通过拖拽排序的可嵌套式列表）</li><li>Sortable（创建可排序的网格和列表重新来排列元素的顺序）</li><li>…</li></ul><p><img src="/img/cssLibraries/uikit.png" alt="uikit"></p><p>传送门：<a href="https://getuikit.com/">https://getuikit.com/</a></p><h2 id="7-Semantic-UI"><a href="#7-Semantic-UI" class="headerlink" title="7.Semantic UI"></a>7.Semantic UI</h2><p>Semantic意为语义，由于Semantic UI类在命名上清晰易懂，因此开发人员不但节省了学习的时间，也让手头上项目的开发更快、更直观。此外布局的多样性是Semantic UI的另一个优势。通过不同的主题，您可以轻松地为各种项目找到必要的组件。</p><p>Semantic UI存在一些缺点，更新频率相较于其他热门框架较低，并且在某些设备运行响应能力一般。</p><p><img src="/img/cssLibraries/semantic.png" alt="semantic"></p><p>传送门：<a href="https://semantic-ui.com/">https://semantic-ui.com/</a></p><h2 id="8-Bulma"><a href="#8-Bulma" class="headerlink" title="8.Bulma"></a>8.Bulma</h2><p>Bulma 是一个基于 Flexbox 的现代化的 CSS 框架。它提供了随时可用的前端组件，您可以轻松地组合这些组件来构建响应式 Web 界面。</p><p><img src="/img/cssLibraries/bulma.png" alt="bulma"></p><p>和bootstrap相比，两者最大的区别是，bulma是纯css，没有js，bootstrap有JS。这里举个<strong>列布局</strong>的例子：</p><ol><li>添加<code>columns</code>容器</li><li>添加任意数量的<code>column</code>元素</li></ol><p>无论列数是多少，每一列的<strong>宽度</strong>都<strong>相等</strong>。</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">&lt;div <span class="hljs-keyword">class</span>=&quot;<span class="hljs-symbol">columns</span>&quot;&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">1</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">2</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">3</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">4</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>  &lt;<span class="hljs-symbol">div</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">column</span>&quot;&gt;<span class="hljs-symbol">5</span>&lt;/<span class="hljs-symbol">div</span>&gt;<br>&lt;/<span class="hljs-symbol">div</span>&gt;<br></code></pre></td></tr></table></figure><p>传送门：<a href="https://bulma.io/">https://bulma.io/</a></p><h2 id="9-Picnic"><a href="#9-Picnic" class="headerlink" title="9.Picnic"></a>9.Picnic</h2><p>Picnic是一个轻量级CSS框架，压缩后的大小不到10kb。该框架最大的特点就是具有多个交互式组件，包括栅格、表单、选项卡、工具提示等等，可以帮助开发人员快速创建响应式网站和web应用程序。</p><p>Picnic CSS是一个用<strong>Sass</strong>写的轻量级UI框架，它能更容易的编辑和自定义变量，如颜色和长度。它还有一些不错的纯CSS写的UI组件，如模态窗口和内容滑块。 </p><p><img src="/img/cssLibraries/picnicss.png" alt="picnicss"></p><p>传送门：<a href="https://picnicss.com/">https://picnicss.com/</a></p><h2 id="10-NES-css"><a href="#10-NES-css" class="headerlink" title="10.NES.css"></a>10.NES.css</h2><p>NES.css 模仿了8 位 Nintendo Entertainment System 图形，营造出复古的游戏外观：</p><p>NES.css 只需要 CSS，不依赖任何 JavaScript。作为每个游戏发烧友都会大呼：爱了！</p><p><img src="/img/cssLibraries/NES.png" alt="NES"></p><p>传送门：<a href="https://nostalgic-css.github.io/NES.css/">https://nostalgic-css.github.io/NES.css/</a></p><p>GitHub：<a href="https://github.com/nostalgic-css/NES.css">https://github.com/nostalgic-css/NES.css</a></p>]]></content>
     
@@ -132,6 +207,14 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>css</tag>
+      
+      <tag>总结</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -141,7 +224,7 @@
     <link href="/2021/08/30/git%E5%91%BD%E4%BB%A4/"/>
     <url>/2021/08/30/git%E5%91%BD%E4%BB%A4/</url>
     
-    <content type="html"><![CDATA[<h3 id="mac操作，不分先后顺序"><a href="#mac操作，不分先后顺序" class="headerlink" title="mac操作，不分先后顺序"></a>mac操作，不分先后顺序</h3><p>sudo 以管理员身份执行<br>vim 打开编辑器  :wq 保存并退出<br>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。<br>source<br>rm -rf [文件名] 删除文件</p><p>使用新电脑，需要和远程GitHub进行连接，这时候需要ssh进行通信，设置步骤为</p><ol><li>检查ssh keys 是否存在<br>输入下面的命令，如果有文件id_rsa.pub 或 id_dsa.pub，则直接进入步骤3将SSH key添加到GitHub中，否则进入第二步生成SSH key<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">ls</span> -al ~<span class="hljs-string">/.ssh</span><br><span class="hljs-comment"># Lists the files in your .ssh directory, if they exist</span><br></code></pre></td></tr></table></figure></li><li>生成新的ssh key<br>在命令行中输入<strong>ssh-keygen -t rsa -C “<a href="mailto:&#121;&#x6f;&#117;&#x72;&#x5f;&#101;&#x6d;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;">&#121;&#x6f;&#117;&#x72;&#x5f;&#101;&#x6d;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;</a>“</strong></li><li>将ssh key添加到GitHub中<br>用自己喜欢的文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可</li></ol><p>不同的操作系统，均有一些命令，直接将SSH key从文件拷贝到粘贴板中，如下：<br>mac: </p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">pbcopy &lt; ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub<br><span class="hljs-comment"># Copies the contents of the id_rsa.pub file to your clipboard</span><br></code></pre></td></tr></table></figure><p>可以使用vim编辑</p><p>vim /etc/hosts<br>绑定域名</p><p>nvm环境变量</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> NVM_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.nvm&quot;</span><br>[ -s <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="hljs-comment"># This loads nvm</span><br>[ -s <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="hljs-comment"># This loads nvm bash_completion</span><br><span class="hljs-built_in">alias</span> ll=<span class="hljs-string">&#x27;ls -alF&#x27;</span><br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="mac操作，不分先后顺序"><a href="#mac操作，不分先后顺序" class="headerlink" title="mac操作，不分先后顺序"></a>mac操作，不分先后顺序</h3><p>sudo 以管理员身份执行<br>vim 打开编辑器  :wq 保存并退出<br>cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。<br>source<br>rm -rf [文件名] 删除文件</p><p>使用新电脑，需要和远程GitHub进行连接，这时候需要ssh进行通信，设置步骤为</p><ol><li>检查ssh keys 是否存在<br>输入下面的命令，如果有文件id_rsa.pub 或 id_dsa.pub，则直接进入步骤3将SSH key添加到GitHub中，否则进入第二步生成SSH key<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">ls</span> -al ~<span class="hljs-string">/.ssh</span><br><span class="hljs-comment"># Lists the files in your .ssh directory, if they exist</span><br></code></pre></td></tr></table></figure></li><li>生成新的ssh key<br>在命令行中输入<strong>ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#117;&#x72;&#95;&#101;&#x6d;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#111;&#x6d;">&#x79;&#111;&#117;&#x72;&#95;&#101;&#x6d;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#111;&#x6d;</a>“</strong></li><li>将ssh key添加到GitHub中<br>用自己喜欢的文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可</li></ol><p>不同的操作系统，均有一些命令，直接将SSH key从文件拷贝到粘贴板中，如下：<br>mac: </p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">pbcopy &lt; ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub<br><span class="hljs-comment"># Copies the contents of the id_rsa.pub file to your clipboard</span><br></code></pre></td></tr></table></figure><p>可以使用vim编辑</p><p>vim /etc/hosts<br>绑定域名</p><p>nvm环境变量</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> NVM_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.nvm&quot;</span><br>[ -s <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/nvm.sh&quot;</span>  <span class="hljs-comment"># This loads nvm</span><br>[ -s <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="hljs-string">&quot;<span class="hljs-variable">$NVM_DIR</span>/bash_completion&quot;</span>  <span class="hljs-comment"># This loads nvm bash_completion</span><br><span class="hljs-built_in">alias</span> ll=<span class="hljs-string">&#x27;ls -alF&#x27;</span><br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -150,6 +233,12 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
     
   </entry>
   
@@ -170,6 +259,14 @@
     </categories>
     
     
+    <tags>
+      
+      <tag>总结</tag>
+      
+      <tag>promise</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -184,10 +281,16 @@
     
     <categories>
       
-      <category>React</category>
+      <category>前端技术</category>
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>React</tag>
+      
+    </tags>
     
   </entry>
   
@@ -195,8 +298,8 @@
   
   <entry>
     <title>hexo 简介，安装，部署</title>
-    <link href="/2021/07/28/hexo%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"/>
-    <url>/2021/07/28/hexo%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
+    <link href="/2021/07/30/hexo%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"/>
+    <url>/2021/07/30/hexo%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
     
     <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>hexo是使用node.js开发的一个快速、简洁、高效、开源的静态博客生成器，使用了<a href="https://www.zybuluo.com/mdeditor">MarkDown</a>解析文章。我们可以用hexo在本地起好服务，托管到github就能通过github域名访问(免费，省事)，当然也可以使用自定义的域名解析(花钱，高大上)。</p><p>本文可能对初学计算机的童鞋们不太友好，这里省去了node.js和git的安装及配置，包括设置Git用户信息，生成SSH key公钥，这里不再赘述，可以自行百度~</p><h3 id="git仓库配置"><a href="#git仓库配置" class="headerlink" title="git仓库配置"></a>git仓库配置</h3><p>我采用的是hexo + githubPages搭建，首先需要<strong>在GitHub上创建Github Pages服务</strong>，具体步骤如下图：<br><img src="/img/hexo-deploy.png" alt="hexo-deploy"><br>点击之后仓库名一定要填 用户名.github.io 的格式(形如zhangzheyi1.github.io)，不要填 用户名 的格式(形如zhangzheyi1)，这里踩了好几次坑了，浪费了不少事件，因为现在我已经有这个仓库了，这个报错可以忽略掉，下面的readme记得点上❤，最后一步点创建<br><img src="/img/hexo-deploy2.png" alt="hexo-deploy2"></p><h3 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install -g hexo-cli <span class="hljs-comment">#全局安装hexo脚手架</span><br></code></pre></td></tr></table></figure><h3 id="初始化创建博客"><a href="#初始化创建博客" class="headerlink" title="初始化创建博客"></a>初始化创建博客</h3><h3 id="1-创建站点根目录"><a href="#1-创建站点根目录" class="headerlink" title="1.创建站点根目录"></a>1.创建站点根目录</h3><p>首先需要初创建一个博客文件夹，注意这个<strong>文件夹的名字</strong>最好要和你刚才创建的GitHubPages的地址一致也就是<strong>your_github_name.github.io</strong>(形如zhangzheyi1.github.io)。这个文件夹以后也统称为站点根目录。</p><h3 id="2-初始化站点根目录"><a href="#2-初始化站点根目录" class="headerlink" title="2.初始化站点根目录"></a>2.初始化站点根目录</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> mkdir &lt;folder&gt;  <span class="hljs-comment">#创建站点根目录，形如(mkdir zhangzheyi1.github.io)</span><br><span class="hljs-variable">$</span> hexo init &lt;folder&gt;  <span class="hljs-comment">#使用Hexo初始化站点根目录(hexo init zhangzheyi1.github.io)</span><br><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> &lt;folder&gt;  <span class="hljs-comment">#进入到站点根目录(cd zhangzheyi1.github.io)</span><br><span class="hljs-variable">$</span> npm install  <span class="hljs-comment">#安装npm所依赖的文件</span><br></code></pre></td></tr></table></figure><p>等他安装好，在输入两条就能访问本地的博客了</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">$ hexo <span class="hljs-keyword">generate</span> # 生成博客<br>$ hexo server # 本地预览<br></code></pre></td></tr></table></figure><p>默认端口是4000，直接浏览器键入 <a href="http://localhost:4000/">http://localhost:4000</a> 就可以访问了，现在是默认的主题</p><p><img src="/img/hexo-deploy3.png" alt="hexo-deploy3"></p><h3 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="3.修改配置文件"></a>3.修改配置文件</h3><p>现在我们只能在本地预览，想在gitPage上预览还需要进行一些配置，找到根目录下的_confi.yml文件，拉到最下面我们看到的是以下code</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br>  <span class="hljs-built_in">type</span>: <span class="hljs-string">&#x27;&#x27;</span><br></code></pre></td></tr></table></figure><p>deploy就是部署的意思，这里部署的话需要填下信息，修改为以下代码就可以</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span> git@github.com:zhangzheyi1/zhangzheyi1.github.io.git<br><span class="hljs-symbol">  branch:</span> master<br></code></pre></td></tr></table></figure><p>repo就是仓库地址，这儿用的是SSH，找到刚才创建的仓库，把这个地址复制下来粘到repo里就可以了</p><p><img src="/img/hexo-deploy4.png" alt="hexo-deploy4"></p><p>安装以下插件：</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">$ npm <span class="hljs-keyword">install</span> hexo-deployer-git —save<br></code></pre></td></tr></table></figure><p>执行以下命令发布本地博客到远程仓库：</p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo deploy<br></code></pre></td></tr></table></figure><p>可能到这步登陆<strong>your_github_name.github.io</strong>，形如zhangzheyi1.github.io，有些同学还是没办法看到自己的博客，就是因为github的配置有点恶心人，当时我也在这儿不知道怎么搞，是因为默认的分支是main，而不是master，需要点击仓库的settings =&gt; pages 然后修改一下默认的分支就可以<br><img src="/img/hexo-deploy5.png" alt="hexo-deploy5"></p><p>到这步基本上就ok了，网上发的好多博客都是很久以前写的，github的版本和hexo的配置文件都不一样，按照本篇文章应该可以完成，现在的博客只是一个默认主题，xdm想换主题的话可以在网上搜一下主题，本博客用的是Fluid主题，第一次发文，确实挺耗时间的，希望自己以后能坚持下去~</p>]]></content>
     
@@ -207,6 +310,12 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
     
   </entry>
   
