@@ -14,7 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="项目得多做总结，能记就记一下。">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      17 字
+      114 字
     </span>
   
 
@@ -241,6 +241,12 @@
             
             <div class="markdown-body">
               <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>项目得多做总结，能记就记一下。</p>
+<h2 id="从打包开始"><a href="#从打包开始" class="headerlink" title="从打包开始"></a>从打包开始</h2><p>package.json =&gt; scripts</p>
+<p>找到运行脚本 =&gt; 在根目录下scripts/start.js</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>  <span class="hljs-string">&quot;app&quot;</span>: <span class="hljs-string">&quot;npm run api &amp;&amp; npm run start&quot;</span>,<br>  <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;node scripts/start.js&quot;</span>,<br>  <span class="hljs-string">...</span><br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<p>查看start.js</p>
+<p>大多数都是一些执行脚本，并且目前大多数项目都是使用的Webpack打包，这里稍微记录一下setupProxy（转发代理）</p>
 
             </div>
             <hr>
