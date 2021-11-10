@@ -244,7 +244,7 @@
 <p>使用新电脑，需要和远程GitHub进行连接，这时候需要ssh进行通信，设置步骤为</p>
 <ol>
 <li>检查ssh keys 是否存在<br>输入下面的命令，如果有文件id_rsa.pub 或 id_dsa.pub，则直接进入步骤3将SSH key添加到GitHub中，否则进入第二步生成SSH key<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">ls</span> -al ~<span class="hljs-string">/.ssh</span><br><span class="hljs-comment"># Lists the files in your .ssh directory, if they exist</span><br></code></pre></td></tr></table></figure></li>
-<li>生成新的ssh key<br>在命令行中输入<strong>ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#117;&#114;&#x5f;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x79;&#111;&#117;&#114;&#x5f;&#101;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#x6d;</a>“</strong></li>
+<li>生成新的ssh key<br>在命令行中输入<strong>ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#101;&#120;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#x79;&#111;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#101;&#120;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a>“</strong></li>
 <li>将ssh key添加到GitHub中<br>用自己喜欢的文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可</li>
 </ol>
 <p>不同的操作系统，均有一些命令，直接将SSH key从文件拷贝到粘贴板中，如下：<br>mac: </p>
