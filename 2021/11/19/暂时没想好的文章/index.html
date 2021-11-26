@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      20
        分钟
     </span>
   
@@ -302,7 +302,8 @@
 <ol start="2">
 <li>空数组作为依赖项，则只在首次执行时触发，对应到 Class 组件就是 componentDidMount。例如：</li>
 </ol>
-<p>useEffect(() =&gt; {<br>  // 组件首次渲染时执行，等价于 class 组件中的 componentDidMount<br>  console.log(‘did mount……..’);<br>}, [])</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>  <span class="hljs-regexp">//</span> 组件首次渲染时执行，等价于 <span class="hljs-class"><span class="hljs-keyword">class</span> 组件中的 <span class="hljs-title">componentDidMount</span></span><br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;did mount........&#x27;</span>);<br>&#125;, []);<br></code></pre></td></tr></table></figure>
+
 <p>除了这些机制之外，useEffect 还<strong>允许你返回一个函数，用于在组件销毁的时候做一些清理的操作</strong>。比如移除事件的监听。这个机制就几乎等价于类组件中的 componentWillUnmount。举个例子，在组件中，我们需要监听窗口的大小变化，以便做一些布局上的调整：</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><br><span class="hljs-comment">// 设置一个 size 的 state 用于保存当前窗口尺寸</span><br>const <span class="hljs-literal">[<span class="hljs-identifier">size</span>, <span class="hljs-identifier">setSize</span>]</span> = use<span class="hljs-constructor">State(&#123;&#125;)</span>;<br>use<span class="hljs-constructor">Effect(()</span> =&gt; &#123;<br>  <span class="hljs-comment">// 窗口大小变化事件处理函数</span><br>  const handler =<span class="hljs-function"> <span class="hljs-params">()</span> =&gt;</span> &#123;<br>    set<span class="hljs-constructor">Size(<span class="hljs-params">getSize</span>()</span>);<br>  &#125;;<br>  <span class="hljs-comment">// 监听 resize 事件</span><br>  window.add<span class="hljs-constructor">EventListener(&#x27;<span class="hljs-params">resize</span>&#x27;, <span class="hljs-params">handler</span>)</span>;<br>  <br>  <span class="hljs-comment">// 返回一个 callback 在组件销毁时调用</span><br>  return<span class="hljs-function"> <span class="hljs-params">()</span> =&gt;</span> &#123;<br>    <span class="hljs-comment">// 移除 resize 事件</span><br>    window.remove<span class="hljs-constructor">EventListener(&#x27;<span class="hljs-params">resize</span>&#x27;, <span class="hljs-params">handler</span>)</span>;<br>  &#125;;<br>&#125;, <span class="hljs-literal">[]</span>);<br></code></pre></td></tr></table></figure>
 
