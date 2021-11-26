@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      2.4k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      28
        分钟
     </span>
   
@@ -241,8 +241,11 @@
             
             <div class="markdown-body">
               <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>React Hooks 是 React 团队在两年前的 16.8 版本推出的一套全新的机制。作为最主流的前端框架，React 的 API 十分稳定，这次更新的发布，让众多恐惧新轮子的前端大佬们虎躯一震，毕竟每一次更新又是高成本的学习，这玩意到底好使么？</p>
-<p>答案是好用的，对于 React 的开发者而言，只是多了一个选择。过去的开发方式是基于Class组件的，而hooks是基于函数组件，这意味着<strong>这两种开发方式可以并存</strong>，而新的代码可以根据具体情况采用 Hooks 的方式来实现就行了。这篇文章主要就来介绍一下<strong>类组件的不足</strong> 和 <strong>常用的几个钩子函数</strong>。</p>
-<h1 id="类组件的不足"><a href="#类组件的不足" class="headerlink" title="类组件的不足"></a>类组件的不足</h1><ul>
+<p>答案是好用的，对于 React 的开发者而言，只是多了一个选择。过去的开发方式是基于Class组件的，而hooks是基于函数组件，这意味着<strong>这两种开发方式可以并存</strong>，而新的代码可以根据具体情况采用 Hooks 的方式来实现就行了。这篇文章主要就来介绍一下<strong>Hooks 的优势</strong> 和 <strong>常用的几个钩子函数</strong>。</p>
+<h1 id="Hooks-的优势"><a href="#Hooks-的优势" class="headerlink" title="Hooks 的优势"></a>Hooks 的优势</h1><ol>
+<li>类组件的不足</li>
+</ol>
+<ul>
 <li><strong>代码量多</strong>：</li>
 </ul>
 <p>相较于函数组件的写法，使用类组件代码量要略多一点，这个是最直观的感受。</p>
@@ -254,20 +257,55 @@
 <li><strong>趋向复杂难以维护</strong>：</li>
 </ul>
 <p>在高版本的React中，又更新了一些生命周期函数，因为这些函数互相解耦，很容易造成分散不集中的写法，漏掉关键逻辑和多了冗余逻辑，导致后期debug困难。相反，hooks可以把关键逻辑都放在一起，不显得那么割裂，调试起来也易懂一点。</p>
+<ul>
+<li><strong>状态逻辑难复用</strong>：</li>
+</ul>
+<p> 在组件之间复用状态逻辑很难，可能要用到 <strong>render props</strong> （渲染属性）或者 <strong>HOC</strong>（高阶组件），但无论是渲染属性，还是高阶组件，都会在原先的组件外包裹一层父容器（一般都是 div 元素），导致层级冗余。</p>
+<ol start="2">
+<li>Hooks带来的好处</li>
+</ol>
+<ul>
+<li>逻辑复用</li>
+</ul>
+<p>在组件之前复用状态逻辑，往往需要借助高阶组件等复杂的设计模式，这些高级组件会产生冗余的组件节点，让调试变得困难，下面用一个demo来对比一下两种实现方式。</p>
 <blockquote>
 <p>Class</p>
+</blockquote>
+<p>在class组件场景下，定义了一个高阶组件，负责监听窗口大小变化，并将变化后的值作为 props 传给下一个组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> useWindowSize = <span class="hljs-function"><span class="hljs-params">Component</span> =&gt;</span> &#123;<br>  <span class="hljs-comment">// 产生一个高阶组件 HOC，只包含监听窗口大小的逻辑</span><br>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HOC</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">PureComponent</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>      <span class="hljs-built_in">super</span>(props);<br>      <span class="hljs-built_in">this</span>.state = &#123;<br>        <span class="hljs-attr">size</span>: <span class="hljs-built_in">this</span>.getSize()<br>      &#125;;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-title">componentDidMount</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;resize&quot;</span>, <span class="hljs-built_in">this</span>.handleResize); <br>    &#125;<br>    <span class="hljs-function"><span class="hljs-title">componentWillUnmount</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;resize&quot;</span>, <span class="hljs-built_in">this</span>.handleResize);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-title">getSize</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.innerWidth &gt; <span class="hljs-number">1000</span> ? <span class="hljs-string">&quot;large&quot;</span> ：<span class="hljs-string">&quot;small&quot;</span>;<br>    &#125;<br>    handleResize = <span class="hljs-function">()=&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> currentSize = <span class="hljs-built_in">this</span>.getSize();<br>      <span class="hljs-built_in">this</span>.setState(&#123;<br>        <span class="hljs-attr">size</span>: <span class="hljs-built_in">this</span>.getSize()<br>      &#125;);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-comment">// 将窗口大小传递给真正的业务逻辑组件</span><br>      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Component</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&#123;this.state.size&#125;</span> /&gt;</span></span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> HOC;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>接下来可以在自定义组件中可以调用 useWindowSize 这样的函数来产生一个新组件，并自带 size 属性，例如：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span></span>&#123;<br>  render() &#123;<br>    const &#123; size &#125; = <span class="hljs-keyword">this</span>.props;<br>    <span class="hljs-keyword">if</span> (size === <span class="hljs-string">&quot;small&quot;</span>) <span class="hljs-keyword">return</span> &lt;<span class="hljs-type">SmallComponent</span> /&gt;;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> &lt;<span class="hljs-type">LargeComponent</span> /&gt;;<br>  &#125;<br>&#125;<br><span class="hljs-comment">// 使用 useWindowSize 产生高阶组件，用于产生 size 属性传递给真正的业务组件</span><br>export <span class="hljs-keyword">default</span> useWindowSize(<span class="hljs-type">MyComponent</span>); <br></code></pre></td></tr></table></figure>
+
+<p>下面看下Hooks的实现方式</p>
+<blockquote>
+<p>Hooks</p>
+</blockquote>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">const getSize = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.innerWidth &gt; <span class="hljs-number">1000</span> ? <span class="hljs-string">&quot;large&quot;</span> : <span class="hljs-string">&quot;small&quot;</span>;<br>&#125;<br>const useWindowSize = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>  const [size, setSize] = useState(getSize());<br>  useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>  const handler = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>      setSize(getSize())<br>    &#125;;<br>    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;resize&#x27;</span>, handler);<br>    <span class="hljs-keyword">return</span> () =&gt; &#123;<br>      <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&#x27;resize&#x27;</span>, handler);<br>    &#125;;<br>  &#125;, []);<br>  <br>  <span class="hljs-keyword">return</span> size;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> Demo = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> size = useWindowSize();<br>  <span class="hljs-keyword">if</span> (size === <span class="hljs-string">&quot;small&quot;</span>) <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SmallComponent</span> /&gt;</span></span>;<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">LargeComponent</span> /&gt;</span></span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>从上面的例子中通过 Hooks 的方式对窗口大小进行了封装，从而将其变成一个可绑定的数据源。这样当窗口大小发生变化时，使用这个 Hook 的组件就都会重新渲染。而且代码也更加简洁和直观，不会产生额外的组件节点，也不显得那么冗余了。</p>
+<ul>
+<li>业务代码更加聚合</li>
+</ul>
+<p>下面举一个最常见的计时器的例子。</p>
+<blockquote>
+<p>class</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> timer = <span class="hljs-literal">null</span><br><span class="hljs-function"><span class="hljs-title">componentDidMount</span>(<span class="hljs-params"></span>)</span> &#123;<br>    timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-comment">// ...</span><br>    &#125;, <span class="hljs-number">1000</span>)<br>&#125;<br><span class="hljs-comment">// ...</span><br><span class="hljs-function"><span class="hljs-title">componentWillUnmount</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">if</span> (timer) <span class="hljs-built_in">clearInterval</span>(timer)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Hooks</p>
 </blockquote>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs arcade">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>    let timer = setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// ...</span><br>    &#125;, <span class="hljs-number">1000</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (timer) clearInterval(timer)<br>    &#125;<br>&#125;, [<span class="hljs-comment">//...])</span><br><br></code></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade">useEffect(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>    let timer = setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// ...</span><br>    &#125;, <span class="hljs-number">1000</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (timer) clearInterval(timer)<br>    &#125;<br>&#125;, [<span class="hljs-comment">//...])</span><br></code></pre></td></tr></table></figure>
 
+<p>Hooks的实现方式能让代码更加集中，逻辑也更清晰。</p>
 <ul>
-<li><strong>状态逻辑难复用</strong>：</li>
+<li>写法简洁</li>
 </ul>
-<p> 在组件之间复用状态逻辑很难，可能要用到 <strong>render props</strong> （渲染属性）或者 <strong>HOC</strong>（高阶组件），但无论是渲染属性，还是高阶组件，都会在原先的组件外包裹一层父容器（一般都是 div 元素），导致层级冗余。</p>
+<p>这个就不举例了，可以从字面意思理解，使用函数组件确实能少些很多代码，懂得都懂，嘻嘻~</p>
 <h1 id="几个内置Hooks的作用以及使用思考"><a href="#几个内置Hooks的作用以及使用思考" class="headerlink" title="几个内置Hooks的作用以及使用思考"></a>几个内置Hooks的作用以及使用思考</h1><h2 id="useState：让函数组件具有维持状态的能力"><a href="#useState：让函数组件具有维持状态的能力" class="headerlink" title="useState：让函数组件具有维持状态的能力"></a>useState：让函数组件具有维持状态的能力</h2><p>useState 这个 Hook 就是用来管理 state 的，它可以<strong>让函数组件具有维持状态的能力</strong>。也就是说，在一个函数组件的多次渲染之间，这个 state 是共享的。下面这个例子就显示了 useState 的用法：（此例为官网例子）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> React, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-comment">// 声明一个新的叫做 “count” 的 state 变量, 并赋初始值0</span><br>  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);<br><br>  <span class="hljs-keyword">return</span> (<br>    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked &#123;count&#125; times<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</span><br><span class="xml">        Click me</span><br><span class="xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
 
