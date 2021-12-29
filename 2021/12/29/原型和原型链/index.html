@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/alarak.png">
+  <link rel="icon" href="/img/alarak.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="你敢信我写了一年的js，这玩意到现在都不太懂。。。赶紧记起来">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>原型和原型链 - zzy</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"zhangzheyi1.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>zzy's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/log/">
+                <i class="iconfont icon-note"></i>
+                log
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/zhangzheyi1/cdn-Img/img/post-page.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="原型和原型链">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-29 15:05" pubdate>
+        2021年12月29日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">原型和原型链</h1>
+            
+            <div class="markdown-body">
+              <h2 id="一-普通对象与函数对象"><a href="#一-普通对象与函数对象" class="headerlink" title="一. 普通对象与函数对象"></a>一. 普通对象与函数对象</h2><p>JavaScript 中，万物皆对象！但对象也是有区别的。分为<strong>普通对象和函数对象</strong>，Object 、Function 是 JS 自带的函数对象。下面举例说明</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> o1 = &#123;&#125;; <br><span class="hljs-keyword">var</span> o2 =<span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();<br><span class="hljs-keyword">var</span> o3 = <span class="hljs-keyword">new</span> f1();<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f1</span>(<span class="hljs-params"></span>)</span>&#123;&#125;; <br><span class="hljs-keyword">var</span> f2 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;;<br><span class="hljs-keyword">var</span> f3 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">&#x27;str&#x27;</span>,<span class="hljs-string">&#x27;console.log(str)&#x27;</span>);<br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Object</span>); <span class="hljs-comment">//function </span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Function</span>); <span class="hljs-comment">//function  </span><br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> f1); <span class="hljs-comment">//function </span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> f2); <span class="hljs-comment">//function </span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> f3); <span class="hljs-comment">//function   </span><br><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> o1); <span class="hljs-comment">//object </span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> o2); <span class="hljs-comment">//object </span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> o3); <span class="hljs-comment">//object</span><br></code></pre></td></tr></table></figure>
+
+<p>在上面的例子中 o1 o2 o3 为普通对象，f1 f2 f3 为函数对象。怎么区分，其实很简单，<strong>凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。f1,f2,归根结底都是通过 new Function()的方式进行创建的。Function Object 也都是通过 New Function()创建的。</strong></p>
+<p>一定要分清楚普通对象和函数对象，下面我们会常常用到它。</p>
+<h2 id="二-构造函数"><a href="#二-构造函数" class="headerlink" title="二. 构造函数"></a>二. 构造函数</h2><p>我们先复习一下构造函数的知识：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span><span class="hljs-params">(name, age, job)</span> </span>&#123;<br> <span class="hljs-keyword">this</span>.name = name;<br> <span class="hljs-keyword">this</span>.age = age;<br> <span class="hljs-keyword">this</span>.job = job;<br> <span class="hljs-keyword">this</span>.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>&#123; alert(<span class="hljs-keyword">this</span>.name) &#125; <br>&#125;<br><span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&#x27;Zaxlct&#x27;</span>, <span class="hljs-number">28</span>, <span class="hljs-string">&#x27;Software Engineer&#x27;</span>);<br><span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&#x27;Mick&#x27;</span>, <span class="hljs-number">23</span>, <span class="hljs-string">&#x27;Doctor&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>上面的例子中 person1 和 person2 都是 Person 的<strong>实例</strong>。这两个实例都有一个 <code>constructor</code> （构造函数）属性，该属性（是一个指针）指向 Person。 即：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">console.<span class="hljs-built_in">log</span>(person1.constructor <span class="hljs-operator">=</span><span class="hljs-operator">=</span> Person); <span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-literal">true</span><br>console.<span class="hljs-built_in">log</span>(person2.constructor <span class="hljs-operator">=</span><span class="hljs-operator">=</span> Person); <span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>我们要记住两个概念（构造函数，实例）：<br><strong>person1 和 person2 都是 构造函数 Person 的实例</strong><br>一个公式：<br><strong>实例的构造函数属性（constructor）指向构造函数。</strong></p>
+<h2 id="三-原型对象"><a href="#三-原型对象" class="headerlink" title="三. 原型对象"></a>三. 原型对象</h2><p>在 JavaScript 中，每当定义一个对象（函数也是对象）时候，对象中都会包含一些预定义的属性。其中每个<strong>函数对象</strong>都有一个<code>prototype</code> 属性，这个属性指向函数的原型对象。（先用不管什么是 <code>__proto__</code> 第二节的课程会详细的剖析）</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">function</span> <span class="hljs-constructor">Person()</span> &#123;&#125;<br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Person</span>.</span></span>prototype.name = &#x27;Zaxlct&#x27;;<br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Person</span>.</span></span>prototype.age  = <span class="hljs-number">28</span>;<br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Person</span>.</span></span>prototype.job  = &#x27;Software Engineer&#x27;;<br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Person</span>.</span></span>prototype.sayName = <span class="hljs-keyword">function</span><span class="hljs-literal">()</span> &#123;<br>  alert(this.name);<br>&#125;<br>  <br>var person1 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Person()</span>;<br>person1.say<span class="hljs-constructor">Name()</span>; <span class="hljs-comment">// &#x27;Zaxlct&#x27;</span><br><br>var person2 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Person()</span>;<br>person2.say<span class="hljs-constructor">Name()</span>; <span class="hljs-comment">// &#x27;Zaxlct&#x27;</span><br><br>console.log(person1.sayName<span class="hljs-operator"> == </span>person2.sayName); <span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+
+<p>我们得到了本文第一个「<strong>定律</strong>」：</p>
+<p>每个对象都有 <strong>proto</strong> 属性，但只有函数对象才有 prototype 属性</p>
+<p>那什么是<strong>原型对象</strong>呢？<br>我们把上面的例子改一改你就会明白了：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-type">Person</span>.proto<span class="hljs-keyword">type</span> = &#123;<br>   name:  &#x27;<span class="hljs-type">Zaxlct</span>&#x27;,<br>   age: 28,<br>   job: &#x27;<span class="hljs-type">Software</span> <span class="hljs-type">Engineer</span>&#x27;,<br>   sayName: function() &#123;<br>     alert(this.name);<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>原型对象，顾名思义，它就是一个普通对象（废话 = =!）。从现在开始你要牢牢记住原型对象就是 Person.prototype ，如果你还是害怕它，那就把它想想成一个字母 A： <code>var A = Person.prototype</code></p>
+<p>在上面我们给 A 添加了 四个属性：name、age、job、sayName。其实它还有一个默认的属性：<code>constructor</code></p>
+<blockquote>
+<p>在默认情况下，所有的<strong>原型对象</strong>都会<strong>自动获得</strong>一个 <code>constructor</code>（构造函数）属性，这个属性（是一个指针）指向 <code>prototype</code> 属性所在的函数（Person）</p>
+</blockquote>
+<p>上面这句话有点拗口，我们「翻译」一下：A 有一个默认的 <code>constructor</code> 属性，这个属性是一个指针，指向 Person。即：</p>
+<p><code>Person.prototype.constructor == Person</code></p>
+<p>在上面第二小节《构造函数》里，我们知道<strong>实例的构造函数属性（constructor）指向构造函数</strong> ：<code>person1.constructor == Person</code><br>这两个「公式」好像有点联系：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">person1.constructor</span> == Person<br><span class="hljs-attr">Person.prototype.constructor</span> == Person<br></code></pre></td></tr></table></figure>
+
+<p>person1 为什么有 constructor 属性？那是因为 person1 是 Person 的实例。<br>那 Person.prototype 为什么有 constructor 属性？？同理， Person.prototype （你把它想象成 A） 也是Person 的实例。<br>也就是在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，基本过程如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"> var A = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Person()</span>;<br> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Person</span>.</span></span>prototype = A;<br><span class="hljs-comment">// 注：上面两行代码只是帮助理解，并不能正常运行</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>结论：原型对象（Person.prototype）是 构造函数（Person）的一个实例。</strong></p>
+<p>原型对象其实就是普通对象（但 Function.prototype 除外，它是函数对象，但它很特殊，他没有prototype属性（前面说道函数对象都有prototype属性））。看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>&#123;&#125;;<br><span class="hljs-built_in">console</span>.log(Person.prototype) <span class="hljs-comment">//Person&#123;&#125;</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> Person.prototype) <span class="hljs-comment">//Object</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Function</span>.prototype) <span class="hljs-comment">// Function，这个特殊</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Object</span>.prototype) <span class="hljs-comment">// Object</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Function</span>.prototype.prototype) <span class="hljs-comment">//undefined</span><br></code></pre></td></tr></table></figure>
+
+<p><code>Function.prototype</code> 为什么是函数对象呢？</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">var A = <span class="hljs-keyword">new</span> <span class="hljs-keyword">Function</span> <span class="hljs-title"></span>();<br><span class="hljs-keyword">Function</span>.prototype = A;<br></code></pre></td></tr></table></figure>
+
+<p><strong>上文提到凡是通过 new Function( ) 产生的对象都是函数对象。因为 A 是函数对象，所以<code>Function.prototype</code> 是函数对象。</strong></p>
+<p>那原型对象是用来做什么的呢？主要作用是用于继承。举个例子：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> Person = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span></span>&#123;<br>  <span class="hljs-keyword">this</span>.name = name; <span class="hljs-comment">// tip: 当函数执行时这个 this 指的是谁？</span><br>&#125;;<br>Person.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name;  <span class="hljs-comment">// tip: 当函数执行时这个 this 指的是谁？</span><br>&#125;<br><span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> person(<span class="hljs-string">&#x27;Mick&#x27;</span>);<br>person1.getName(); <span class="hljs-comment">//Mick</span><br></code></pre></td></tr></table></figure>
+
+<p>从这个例子可以看出，通过给 Person.prototype 设置了一个函数对象的属性，那有 Person 的实例（person1）出来的普通对象就继承了这个属性。具体是怎么实现的继承，就要讲到下面的原型链了。</p>
+<p>小问题，上面两个 this 都指向谁？</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> <span class="hljs-type">person</span>(<span class="hljs-string">&#x27;Mick&#x27;</span>);<br>person1.name = <span class="hljs-string">&#x27;Mick&#x27;</span>; <span class="hljs-comment">// 此时 person1 已经有 name 这个属性了</span><br>person1.getName(); <span class="hljs-comment">//Mick </span><br></code></pre></td></tr></table></figure>
+
+<p>故两次 this 在函数执行时都指向 person1。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/js/">js</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/19/React%20Hooks/">
+                        <span class="hidden-mobile">了解React Hooks及其常用的几个钩子函数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"2KSdC5gxWFiBvC8NJywDN5og-gzGzoHsz","appKey":"uK01l40rQQwzma9swo1PnAlq","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"https://2ksdc5gx.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

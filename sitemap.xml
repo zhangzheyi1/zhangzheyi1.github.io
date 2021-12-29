@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhangzheyi1.github.io/2021/12/29/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    
+    <lastmod>2021-12-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhangzheyi1.github.io/2021/10/13/%E5%86%9C%E6%B0%91%E5%B7%A5%E6%97%A5%E8%AE%B002/</loc>
+    
+    <lastmod>2021-12-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhangzheyi1.github.io/2021/11/19/React%20Hooks/</loc>
     
     <lastmod>2021-11-26</lastmod>
@@ -65,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://zhangzheyi1.github.io/2021/10/13/%E5%86%9C%E6%B0%91%E5%B7%A5%E6%97%A5%E8%AE%B002/</loc>
-    
-    <lastmod>2021-11-08</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhangzheyi1.github.io/2021/10/24/%E5%86%9C%E6%B0%91%E5%B7%A5%E6%97%A5%E8%AE%B003/</loc>
     
     <lastmod>2021-11-08</lastmod>
@@ -116,7 +123,7 @@
 
   <url>
     <loc>https://zhangzheyi1.github.io/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -124,84 +131,84 @@
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/React/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/js/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/hexo/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/git/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/promise/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/%E9%87%8D%E6%9E%84/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/%E7%BB%84%E4%BB%B6/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/antd/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/%E9%9D%A2%E7%BB%8F/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/css/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -210,21 +217,21 @@
   
   <url>
     <loc>https://zhangzheyi1.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/categories/Linux/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zhangzheyi1.github.io/categories/hexo/</loc>
-    <lastmod>2021-12-23</lastmod>
+    <lastmod>2021-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

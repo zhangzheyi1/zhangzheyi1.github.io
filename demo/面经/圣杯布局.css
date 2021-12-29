@@ -1,0 +1,27 @@
+#box{
+	height: 150px;
+	background-color: #CF9B2B;
+	margin: 0px 300px;
+}
+.center{
+	width: 100%;
+	height: 150px;
+	background-color: #CE8483;
+	float: left;
+}
+.left{
+	float: left;
+	width: 300px;
+	height: 150px;
+	background-color: #00FFFF;
+	margin-left: -300px;
+	position: relative;
+}
+.right{
+	float: right;
+	width: 300px;
+	height: 150px;
+	background-color: #10C593;
+	margin-right: -300px;
+	position: relative;
+}
