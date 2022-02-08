@@ -11,13 +11,43 @@
   <meta name="viewport" content="width=\, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  #box {
+    width: 100%;
+    /* 弹性盒子 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cl1 {
+    background-color: #00FFFF;
+    /* 固定宽度 */
+    width: 200px;
+    height: 300px;
+  }
+
+  .cl2 {
+    background-color: #10C593;
+    /* 居中占比 */
+    flex: 1;
+    height: 300px;
+  }
+
+  .cl3 {
+    background-color: #1D7DB1;
+    /* 固定宽度 */
+    width: 200px;
+    height: 300px;
+  }
+</style>
 
 <body>
   <div id="box">
     <div class="cl1">1</div>
     <div class="cl2">2</div>
     <div class="cl3">3</div>
-  </div>  
+  </div>
 </body>
 
 </html>
