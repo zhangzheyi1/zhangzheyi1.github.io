@@ -56,3 +56,54 @@ Promise.myAll([p1, p2, p4]).then((res) => {
 }).catch((err) => {
   console.log('err', err) // err 出错啦
 })
+
+
+// 对于 all 方法而言，需要完成下面的核心功能:
+
+// 传入参数为一个空的可迭代对象，则直接进行resolve。
+// 如果参数中有一个promise失败，那么Promise.all返回的promise对象失败。
+// 在任何情况下，Promise.all 返回的 promise 的完成状态的结果都是一个数组
+Promise.all = function(promises) {
+  return new Promise((resolve, reject) => {
+    let result = [];
+    let index = 0;
+    let len = promises.length;
+    if(len === 0) {
+      resolve(result);
+      return;
+    }
+   
+    for(let i = 0; i < len; i++) {
+      // 为什么不直接 promise[i].then, 因为promise[i]可能不是一个promise
+      Promise.resolve(promise[i]).then(data => {
+        result[i] = data;
+        index++;
+        if(index === len) resolve(result);
+      }).catch(err => {
+        reject(err);
+      })
+    }
+  })
+}
+
+promise.all = function(promises) {
+  return new Promise((resolve, reject) => {
+    let result = [];
+    let index = 0;
+    let length = promises.length;
+    if (length === 0) {
+      resolve(result);
+      return;
+    }
+    for (let i = 0; i < length; i++) {
+      Promise.resolve(promise[i]).then(data => {
+        result[i] = data;
+        index++;
+        if (index === length) resolve(result);
+      }).catch(err => {
+        reject(err);
+      })
+      
+    }
+  })
+}
