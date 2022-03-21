@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<body>
+  <div class="main">
+    <div class="middle">middle</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+<style>
+  .main {
+    padding: 0 100px;
+    height: 600px;
+  }
+
+  .left {
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    margin-left: -100%;
+    position: relative;
+    float: left;
+    right: 100px;
+    /* 自身宽度 */
+  }
+
+  .right {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin-right: -100px;
+    float: left;
+  }
+
+  .middle {
+    width: 100%;
+    height: 100px;
+    background-color: blue;
+    float: left;
+  }
+</style>

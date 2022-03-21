@@ -1,0 +1,60 @@
+<div class="parent">
+  <div class="header">header -- 固定</div>
+  <div class="content">
+    <p>content -- 滚动</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+    <p>内容部分</p>
+  </div>
+  <div class="footer">footer -- 固定</div>
+</div>
+
+<style>
+.parent{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  /* line-height: 50px; */
+  background: #b6efff;
+  text-align: center;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+p {
+  height: 70px;
+  /* line-height: 70px; */
+  border-bottom: 1px solid #ccc;
+}
+
+.footer {
+  height: 50px;
+  /* line-height: 50px; */
+  background: #b6efff;
+}
+
+</style>
