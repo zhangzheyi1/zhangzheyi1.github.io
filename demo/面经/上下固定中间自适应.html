@@ -1,60 +1,78 @@
-<div class="parent">
-  <div class="header">header -- 固定</div>
+<!DOCTYPE html>
+<header>
+  <title>xy test</title>
+ <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+
+  }
+  .top {
+    width: 100%;
+    height: 40px;
+    background: pink;
+    position: fixed;
+  }
+  .content {
+    overflow-y:auto;
+  }
+  p {
+    height: 40px;
+  }
+  .bottom {
+    width: 100%;
+    height: 60px;
+    background: green;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+ </style>
+</header>
+<html>
+
+
+<body>
+  <div class="top">top</div>
   <div class="content">
-    <p>content -- 滚动</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
-    <p>内容部分</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
+    <p>content</p>
   </div>
-  <div class="footer">footer -- 固定</div>
-</div>
+  <div class="bottom">bottom</div>
+</body>
 
-<style>
-.parent{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.header {
-  width: 100%;
-  height: 50px;
-  /* line-height: 50px; */
-  background: #b6efff;
-  text-align: center;
-}
-
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-
-p {
-  height: 70px;
-  /* line-height: 70px; */
-  border-bottom: 1px solid #ccc;
-}
-
-.footer {
-  height: 50px;
-  /* line-height: 50px; */
-  background: #b6efff;
-}
-
-</style>
+</html>

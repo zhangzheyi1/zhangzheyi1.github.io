@@ -1,81 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
- 
-  <title>Document</title>
-</head>
-<!-- <!DOCTYPE html> -->
-
 <body>
-  <div class="parent">
-    <div class="header">top</div>
-    <div class="content">
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-      <p>123</p>
-    </div>
-    <div class="footer">bottom</div>
+  <div class="container">
+      <div class="subA">subA</div>
+      <div class="subB">subB</div>
   </div>
-</body>
-<style>
-  .parent {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .header {
-    width: 100%;
-    height: 50px;
-    background: #b6efff;
-    text-align: center;
-    position: fixed;
-  }
-
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-
-  .footer {
-    height: 50px;
-    /* line-height: 50px; */
-    background: #b6efff;
-    
-  }
-</style>
-
-</html>
+  <script>
+      document.querySelector(".subA").addEventListener("click", (e) => {
+          console.log("subA click");
+          console.log(e.target.getAttribute("class"));
+      });
+      document.querySelector(".container").addEventListener("click", (e) => {
+          console.log("container click");
+          console.log(e.target.getAttribute("class"));
+      })
+  </script>
+  </body>
