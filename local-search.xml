@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>前端性能优化</title>
+    <link href="/2022/05/11/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <url>/2022/05/11/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h2 id="聊一下前端的性能优化"><a href="#聊一下前端的性能优化" class="headerlink" title="聊一下前端的性能优化"></a>聊一下前端的性能优化</h2><p>网上八股文写的性能优化都烂大街了，没有新颖的地方，这里总结一下非常规的优化方式</p><h3 id="1-虚拟滚动"><a href="#1-虚拟滚动" class="headerlink" title="1. 虚拟滚动"></a>1. 虚拟滚动</h3><p>react里面的有react-virtualized, 贴个链接<a href="https://github.com/bvaughn/react-virtualized">https://github.com/bvaughn/react-virtualized</a></p><p>下面有封装好的组件实例可以用：</p><p>以下是一些建立在 react-virtualized 之上的优秀组件：</p><ul><li>react-infinite-calendar：具有本地化、主题、键盘支持等的无限滚动日期选择器</li><li>react-sortable-hoc : 将任何列表转换为动画、触摸友好、可排序列表的高阶组件</li><li>react-sortable-tree：分层数据的拖放可排序表示</li><li>react-virtualized-checkbox：具有大量选项的虚拟化复选框组组件</li><li>react-virtualized-select：带有窗口的 React 下拉菜单，以支持大量选项。</li><li>react-virtualized-tree：一个反应式树组件，旨在以优雅和高性能的方式呈现大量树结构数据</li><li>react-timeline-9000：日历时间线组件，能够显示大量项目并与之交互</li></ul><p>上面的具体链接可以到github上点进去，这里不做链接了</p><p>下面说一下虚拟滚动的原理吧：</p><p>思路整理</p><ul><li>监听滚轮事件/触摸事件，记录列表的总偏移量。</li><li>根据总偏移量计算列表的可视元素起始索引。</li><li>从起始索引渲染元素至视口底部。</li><li>当总偏移量更新时，重新渲染可视元素列表。</li><li>为可视元素列表前后加入缓冲元素。</li><li>在滚动量比较小时，直接修改可视元素列表的偏移量。</li><li>在滚动量比较大时（比如拖动滚动条），会重新渲染整个列表。</li><li>事件节流。</li></ul><p>有个老哥写的文章挺好的，可以进去看看，<a href="https://juejin.cn/post/6844904183582162957">https://juejin.cn/post/6844904183582162957</a></p><h3 id="2-按需加载"><a href="#2-按需加载" class="headerlink" title="2. 按需加载"></a>2. 按需加载</h3><p>按需加载可以借助一下graphQL做一下数据处理</p><p>如何从一百多个字段中，抽取任意n个字段，这就用到graphQL。</p><p>graphQL按需加载数据只需要三步：</p><ul><li>定义数据池 root</li><li>描述数据池中数据结构 schema</li><li>自定义查询数据 query</li></ul><p>具体实现可以看下这篇蝌蚪哥写的文章，<a href="https://github.com/airuikun/technology-blog/issues/50">https://github.com/airuikun/technology-blog/issues/50</a></p><h3 id="3-懒加载"><a href="#3-懒加载" class="headerlink" title="3. 懒加载"></a>3. 懒加载</h3><ul><li>懒加载就是将不关键的资源延后加载。</li><li>懒加载的原理就是只加载自定义区域（通常是可视区域，但也可以是即将进入可视区域）内需要加载的东西。对于图片来说，先设置图片标签的 src 属性为一张占位图，将真实的- 图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 src 属性，这样图片就会去下载资源，实现了图片懒加载。</li><li>懒加载不仅可以用于图片，也可以使用在别的资源上。比如进入可视区域才开始播放视频等等。</li></ul><p>react 的懒加载可以用react.lazy实现，文档上写的很清楚<a href="https://zh-hans.reactjs.org/docs/code-splitting.html">https://zh-hans.reactjs.org/docs/code-splitting.html</a></p><h3 id="4-service-worker-本地化缓存-离线缓存"><a href="#4-service-worker-本地化缓存-离线缓存" class="headerlink" title="4. service worker:  本地化缓存 离线缓存"></a>4. service worker:  本地化缓存 离线缓存</h3><h3 id="5-前端SEO：-https-juejin-cn-post-6844903824428105735"><a href="#5-前端SEO：-https-juejin-cn-post-6844903824428105735" class="headerlink" title="5. 前端SEO： https://juejin.cn/post/6844903824428105735"></a>5. 前端SEO： <a href="https://juejin.cn/post/6844903824428105735">https://juejin.cn/post/6844903824428105735</a></h3><h3 id="6-socketio：-form表单协同"><a href="#6-socketio：-form表单协同" class="headerlink" title="6. socketio： form表单协同"></a>6. socketio： form表单协同</h3><h3 id="7-公共runtime：-极大提升项目加载速度-webpack-external"><a href="#7-公共runtime：-极大提升项目加载速度-webpack-external" class="headerlink" title="7. 公共runtime： 极大提升项目加载速度  webpack external"></a>7. 公共runtime： 极大提升项目加载速度  webpack external</h3><h3 id="8-微前端：-乾坤-或者-楷哥的公共runtime"><a href="#8-微前端：-乾坤-或者-楷哥的公共runtime" class="headerlink" title="8. 微前端： 乾坤  或者  楷哥的公共runtime"></a>8. 微前端： 乾坤  或者  楷哥的公共runtime</h3><h3 id="9-lerna-monorepo-大型前端项目管理-大仓管理-多项目版本协同管理-https-segmentfault-com-a-1190000019309820"><a href="#9-lerna-monorepo-大型前端项目管理-大仓管理-多项目版本协同管理-https-segmentfault-com-a-1190000019309820" class="headerlink" title="9. lerna monorepo:  大型前端项目管理 大仓管理 多项目版本协同管理  https://segmentfault.com/a/1190000019309820"></a>9. lerna monorepo:  大型前端项目管理 大仓管理 多项目版本协同管理  <a href="https://segmentfault.com/a/1190000019309820">https://segmentfault.com/a/1190000019309820</a></h3><h3 id="10-前后端解耦分离：-cdn"><a href="#10-前后端解耦分离：-cdn" class="headerlink" title="10. 前后端解耦分离：  cdn"></a>10. 前后端解耦分离：  cdn</h3><h3 id="11-工程化：-ast插入配置（import-json-code-）-不用人为去弄-插入组件-插入页面-自动化打点"><a href="#11-工程化：-ast插入配置（import-json-code-）-不用人为去弄-插入组件-插入页面-自动化打点" class="headerlink" title="11. 工程化： ast插入配置（import json code ） 不用人为去弄 插入组件 插入页面 自动化打点"></a>11. 工程化： ast插入配置（import json code ） 不用人为去弄 插入组件 插入页面 自动化打点</h3><p>参考上篇博客</p><h3 id="12-localstorage-监听同步-本地多屏幕同步-https-stackoverflow-com-questions-50767241-observe"><a href="#12-localstorage-监听同步-本地多屏幕同步-https-stackoverflow-com-questions-50767241-observe" class="headerlink" title="12. localstorage 监听同步 本地多屏幕同步: https://stackoverflow.com/questions/50767241/observe-"></a>12. localstorage 监听同步 本地多屏幕同步: <a href="https://stackoverflow.com/questions/50767241/observe-">https://stackoverflow.com/questions/50767241/observe-</a></h3><h3 id="13-无痕埋点：-缩减人力-https-github-com-airuikun-smart-tracker"><a href="#13-无痕埋点：-缩减人力-https-github-com-airuikun-smart-tracker" class="headerlink" title="13. 无痕埋点： 缩减人力  https://github.com/airuikun/smart-tracker"></a>13. 无痕埋点： 缩减人力  <a href="https://github.com/airuikun/smart-tracker">https://github.com/airuikun/smart-tracker</a></h3><h3 id="14-node端接口代理-解决跨域问题"><a href="#14-node端接口代理-解决跨域问题" class="headerlink" title="14. node端接口代理 解决跨域问题"></a>14. node端接口代理 解决跨域问题</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>总结</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>工具类</title>
     <link href="/2022/05/11/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
     <url>/2022/05/11/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
